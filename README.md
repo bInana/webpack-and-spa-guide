@@ -1,3 +1,11 @@
+## 自己补充的问题：
+- **[1]**：需要将simple中foo的index.html的注释去除，不然打包会出现以下错误：
+  ```
+  ERROR in ./src/views/foo/index.html 
+  Module not found: Error: Can't resolve 'H:\workspace-test\node-ddns-ui\src/assets/f78661bef717cf2cc2c2e5158f196384.png' in 'H:\workspace-test\node-ddns-ui\src\views\foo'
+  ```
+- **[2]**：因为教程是几年前的，所以一些依赖如果版本不是旧的。那么会出现各种问题。所以安全起见，package.json的依赖需要和本教程保持一致。
+
 # Webpack 4 和单页应用入门
 
 > webpack 更新到了 4.0，官网还没有更新文档。因此把教程更新一下，方便大家用起 webpack 4。
@@ -137,7 +145,7 @@ webpack 是基于我大 Node.js 的打包工具，上来第一件事自然是先
 
 ```
 ├── dist                      打包输出目录，只需部署这个目录到生产环境
-├── package.json              项目配置信息
+├── package.json              项目配置信息[2]
 ├── node_modules              npm 安装的依赖包都在这里面
 ├── src                       我们的源代码
 │   ├── components            可以复用的模块放在这里面
@@ -1269,7 +1277,7 @@ html 中的 `<img>` 标签没法使用这个别名功能，但 `html-loader` 有
 PS: 在调试 `<img>` 标签的时候遇到一个坑，`html-loader` 会解析 `<!-- -->` 注释中的内容，之前在注释中写的
 
 ```html
-<!--
+<!-- [1]
 大于 10kb 的图片，图片会被储存到输出目录，src 会被替换为打包后的路径
 <img src="/assets/f78661bef717cf2cc2c2e5158f196384.png">
 -->
