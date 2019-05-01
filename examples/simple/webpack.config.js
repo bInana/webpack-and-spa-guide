@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const { resolve } = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const history = require('connect-history-api-fallback')
@@ -5,7 +6,8 @@ const convert = require('koa-connect')
 
 // 使用 WEBPACK_SERVE 环境变量检测当前是否是在 webpack-server 启动的开发环境中
 const dev = Boolean(process.env.WEBPACK_SERVE)
-
+console.log(process.env)
+console.log(process.env.WEBPACK_SERVE)
 module.exports = {
   /*
   webpack 执行模式
